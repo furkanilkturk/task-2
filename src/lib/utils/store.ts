@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
 export const isOpen = writable(true);
+export const chartType = writable('day');
 
 export const sidebarOpen = () => {
 	isOpen.update((current) => {
@@ -8,4 +9,8 @@ export const sidebarOpen = () => {
 		console.log('Sidebar State:', isOpen);
 		return newState;
 	});
+};
+
+export const selectChartType = (type: string) => {
+	chartType.update((current) => type);
 };
