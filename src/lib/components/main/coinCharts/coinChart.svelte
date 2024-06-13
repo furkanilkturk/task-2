@@ -4,7 +4,7 @@
 	import WeekChart from '$lib/components/main/coinCharts/canvas/weekChart.svelte';
 	import MonthChart from '$lib/components/main/coinCharts/canvas/monthChart.svelte';
 
-	import { selectChartType, chartType } from '$lib/utils/store';
+	import { selectChartType, chartType } from '$lib/utils/coinChartsType';
 </script>
 
 <div class="flex flex-col gap-6 px-2 md:flex-row lg:gap-2">

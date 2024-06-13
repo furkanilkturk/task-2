@@ -1,5 +1,5 @@
 <script>
-	import { isOpen, sidebarOpen } from '$lib/utils/store';
+	import { isOpen, sidebarOpen } from '$lib/utils/sidebar';
 	import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 </script>
 

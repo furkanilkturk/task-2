@@ -2,7 +2,9 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		const canvasOverview = document.getElementById('chartOverview') as HTMLCanvasElement | null;
+		const canvasOverview = document.getElementById(
+			'chartOverviewMonthly'
+		) as HTMLCanvasElement | null;
 		const overviewCtx = canvasOverview?.getContext('2d');
 
 		overviewCtx?.beginPath();
@@ -49,4 +51,4 @@
 	});
 </script>
 
-<canvas id="chartOverview" width="600" height="200"></canvas>
+<canvas id="chartOverviewMonthly" width="600" height="200"></canvas>

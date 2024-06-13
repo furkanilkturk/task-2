@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { marketType, selectMarketType } from '$lib/utils/marketChartsType';
 	import MonthlyChart from './Market-Charts/monthlyChart.svelte';
+	import DailyCharts from './Market-Charts/dailyChart.svelte';
+	import WeeklyCharts from './Market-Charts/weeklyChart.svelte';
 </script>
 
 <div class="flex flex-shrink-0 flex-col gap-6 overflow-hidden lg:flex-row lg:gap-2">
@@ -8,8 +11,10 @@
 			<h1 class="text-xl font-bold">Market Overview</h1>
 			<select
 				name="marketOverview"
-				id="marketOverview "
+				id="marketOverview"
 				class="cursor-pointer rounded-lg bg-buttonDark px-4 py-2"
+				bind:value={$marketType}
+				on:change={() => selectMarketType($marketType)}
 			>
 				<option value="daily">Daily</option>
 				<option value="weekly">Weekly</option>
@@ -26,7 +31,13 @@
 				<span>0k</span>
 			</div>
 			<div class="pl-2">
-				<MonthlyChart />
+				{#if $marketType === 'daily'}
+					<DailyCharts />
+				{:else if $marketType === 'weekly'}
+					<WeeklyCharts />
+				{:else if $marketType === 'monthly'}
+					<MonthlyChart />
+				{/if}
 			</div>
 		</div>
 	</div>

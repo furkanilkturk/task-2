@@ -1,7 +1,7 @@
 <script>
 	import { LogOut } from 'lucide-svelte';
 
-	import { isOpen } from '$lib/utils/store';
+	import { isOpen } from '$lib/utils/sidebar';
 	import Routes from './routes.svelte';
 	import SidebarButton from '../sidebarButton.svelte';
 </script>

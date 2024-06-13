@@ -1,17 +1,12 @@
 <script lang="ts">
 	import { Search, Bell } from 'lucide-svelte';
+
 	import Avatar from '$lib/assets/avatar.png';
 
 	import SidebarButton from '../sidebarButton.svelte';
+	import { handleBlur, handleFocus, isFocus } from '$lib/utils/navbar';
 
-	let isFocus = false;
 	let inputValue = '';
-	const handleFocus = () => {
-		isFocus = true;
-	};
-	const handleBlur = () => {
-		isFocus = false;
-	};
 </script>
 
 <nav class="flex w-full items-center justify-between px-4 py-4">
@@ -32,7 +27,8 @@
 
 		<label
 			for="search"
-			class="absolute left-2 top-[0.3rem] text-iconDark {isFocus || inputValue ? 'hidden' : 'flex'}"
+			class:hidden={$isFocus || inputValue}
+			class="absolute left-2 top-[0.3rem] text-iconDark"
 		>
 			Search
 		</label>
@@ -59,9 +55,8 @@
 
 			<label
 				for="search"
-				class="absolute left-2 top-[0.3rem] text-iconDark {isFocus || inputValue
-					? 'hidden'
-					: 'flex'}"
+				class:hidden={$isFocus || inputValue}
+				class="absolute left-2 top-[0.3rem] text-iconDark"
 			>
 				Search
 			</label>
